@@ -2,8 +2,15 @@
 Chef\_Solo\_Nodes
 ===============
 
-Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs()
+Parse files from "nodes/\*.json" to help you integrate your Chef-Solo
+nodes with Capistrano, Knife-Solo, SSH, etc.
 
+
+Implementation
+--------------
+
+It's easier to understand if you see the code. 
+[It's just one page long.](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
 
 Installation
 -----------
@@ -12,6 +19,8 @@ Installation
 
 Usage: Ruby
 ----------
+
+Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs(). 
 
     require "Chef_Solo_Nodes"
 
@@ -25,6 +34,16 @@ Usage: Capistrano
     require "Chef_Solo_Nodes"
     role :app, *Chef_Solo_IPs('app')
     role :db, *Chef_Solo_IPs('db')
+
+Equivalent to:
+
+    role :app, "user@host:port", "xx.xx.xx.xx"
+    role :db, "xx.xx.xx.xx"
+
+Usage: Shell
+------------
+
+Provides 3 executables: CAP\_IP, IP, SSH
 
 Usage: CAP\_IP
 --------------------
@@ -70,11 +89,5 @@ Usage: SSH
     # Using knife-solo: https://github.com/matschaffer/knife-solo 
     $ knife prepare $( SSH file_name )
     knife prepare -p 2222 vagrant@localhost
-
-Implementation
---------------
-
-It's easier to understand if you see the code. 
-[It's just one page long.](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
 
 
