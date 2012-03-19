@@ -51,4 +51,16 @@ def Chef_Solo_IPs *args
   }
 end
 
+#
+#  Mainly used for bin/ executables.
+#   
+def Chef_Solo_Node_Required result
+  error = !result || (result.respond_to?(:empty?) && result.empty?)
+  if error
+    print 'xx.xx.xx.xx'
+    exit 1
+  end
+  
+  result
+end
 

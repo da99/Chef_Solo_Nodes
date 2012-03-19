@@ -11,6 +11,4 @@ end
 uri = URI.parse("ssh://#{n}")
 
 print "#{uri.host}"
-if uri.port
-  print ":#{uri.port}"
-end
+print ":#{uri.port}" if uri.port
