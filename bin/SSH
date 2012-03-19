@@ -11,11 +11,11 @@ end
 
 str = ""
 if n['port']
-  str += " -p #{n['port']} "
+  str += "-p #{n['port']} "
 end
 
 login = n['user'] || n['login']
-if n['user']
+if login
   str += "#{login}@"
 end
 
