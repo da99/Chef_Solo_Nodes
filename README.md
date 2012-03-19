@@ -22,9 +22,9 @@ Ruby Usage
 Capistrano Usage
 ----------------
 
-   require "Chef_Solo_Nodes"
-   role :app, *Chef_Solo_IPs('app')
-   role :db, *Chef_Solo_IPs('db')
+    require "Chef_Solo_Nodes"
+    role :app, *Chef_Solo_IPs('app')
+    role :db, *Chef_Solo_IPs('db')
 
 Executable Usage: IP
 --------------------
