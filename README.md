@@ -5,12 +5,28 @@ Chef\_Solo\_Nodes
 Parse files from "nodes/\*.json" to help you integrate your Chef-Solo
 nodes with Capistrano, Knife-Solo, SSH, etc.
 
+The .json file can optionally define any of the following attributes:
+
+  * "ipaddress" - If not defined, file name used: node/[FILE\_NAME].json
+  * "user" || "login"
+  * "port"
+
+Example: node/Machine\_Name.json
+--------------------------------
+    
+    { 
+       "ipaddress": "localhost", 
+       "port": 2222, 
+       "user": "vagrant",
+       "roles": ["dev"],
+       "run_list": [ "recipe[...]", "recipe[....]"]
+    }
 
 Implementation
 --------------
 
-It's easier to understand if you see the code. 
-[It's just one page long.](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
+Most of the action is in
+[less than 100 lines of code.](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
 
 Installation
 -----------
