@@ -2,17 +2,21 @@ require 'Chef_Solo_Nodes/version'
 require "json"
 
 def Chef_Solo_Nodes raw_role = '*'
-  role = raw_role.to_s
-  all  = Dir.glob("nodes/*.json").map { |str| 
+  
+  if raw_role.is_a?(Array)
+    role = '*'
+    targets = raw_role
+  else
+    role = raw_role.to_s
+    targets = Dir.glob("nodes/*.json")
+  end
+  
+  targets.map { |str| 
     h = JSON(File.read(str))
+    next if role != '*' && !(h['roles'] || []).include?(role)
     h['ipaddress'] ||= File.basename(str).sub(".json", "")
     h
-  }
-  return all if role == '*'
-  
-  all.select { |h| 
-    (h['roles'] || []).include?(role) 
-  }
+  }.compact
 end
 
 def Chef_Solo_IPs *args

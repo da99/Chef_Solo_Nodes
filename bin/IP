@@ -1,3 +1,12 @@
 #!/usr/bin/env ruby
+require "Chef_Solo_Nodes"
 
-require "trollop"
+n = Chef_Solo_IPs(Dir.glob("nodes/#{ARGV.first}.json")).first
+
+unless n
+  print 'xx.xx.xx.xx'
+  exit 1
+end
+
+
+print n

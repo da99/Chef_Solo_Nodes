@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require "Chef_Solo_Nodes"
+
+n = Chef_Solo_Nodes(Dir.glob("nodes/#{ARGV.first}.json")).first
+
+unless n
+  print "xx.xx.xx.xx"
+  exit 1
+end
+
+str = ""
+if n['port']
+  str += " -p #{n['port']} "
+end
+
+login = n['user'] || n['login']
+if n['user']
+  str += "#{login}@"
+end
+
+str += "#{n['ipaddress']}"
+print str
