@@ -10,14 +10,52 @@ Installation
 
     gem install Chef_Solo_Nodes
 
-Usage
------
+Ruby Usage
+----------
 
     require "Chef_Solo_Nodes"
 
     Chef_Solo_Nodes() # ===> [ Hash, Hash ]
     Chef_Solo_Nodes('role_name') # ===> [ Hash, Hash ]
     Chef_Solo_IPs('db') # ===> [ String, String ]
+
+Capistrano Usage
+----------------
+
+   require "Chef_Solo_Nodes"
+   role :app, *Chef_Solo_IPs('app')
+   role :db, *Chef_Solo_IPs('db')
+
+Executable Usage: IP
+--------------------
+
+    $ IP file_glob  
+    127.0.0.1
+
+    $ IP file_with_specified_port
+    127.0.0.1:2222
+
+    $ IP file_with_specified_user_and_port
+    127.0.0.1:2222 # user is not included
+
+Executable Usage: SSH
+--------------------
+
+    $ SSH file_glob  
+    127.0.0.1
+
+    $ SSH file_with_specified_user_or_login
+    vagrant@127.0.0.1
+
+    $ SSH file_with_specified_port
+    -p 2222 vagrant@127.0.0.1
+
+    $ ssh `SSH vagrant`
+    ssh -p 2222 vagrant@127.0.0.1
+
+    $ knife `SSH file_name`
+    knife vagrant@localhost:2222
+
 
 Implementation
 --------------

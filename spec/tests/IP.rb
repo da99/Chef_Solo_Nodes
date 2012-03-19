@@ -19,6 +19,13 @@ describe "IP" do
       `bundle exec IP "*"`.should == "freemont"
     }
   end
+
+  it "does not include user if specified" do
+    chdir {
+      `bundle exec IP "with_user"`.should == "localhost"
+    }
+  end
+  
   
 end # === IP
 
