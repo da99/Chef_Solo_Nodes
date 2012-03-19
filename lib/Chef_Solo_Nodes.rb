@@ -6,6 +6,9 @@ require "json"
 #
 #    role_or_paths = File paths Array OR Role name String.
 #
+#  Returns:
+#
+#    Array of Hashes.
 #
 def Chef_Solo_Nodes role_or_paths = '*'
   
@@ -26,6 +29,15 @@ def Chef_Solo_Nodes role_or_paths = '*'
   
 end
 
+# 
+#  Arguments:
+#
+#    Same as Chef_Solo_Nodes()
+#
+#  Returns:
+#
+#    Array of Strings.
+#
 def Chef_Solo_IPs *args
   Chef_Solo_Nodes(*args).map { |h| 
     [ h['ipaddress'] || h['hostname'], h['port'] ].compact.join(':')
