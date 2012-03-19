@@ -53,8 +53,9 @@ Executable Usage: SSH
     $ ssh `SSH vagrant`
     ssh -p 2222 vagrant@127.0.0.1
 
-    $ knife `SSH file_name`
-    knife -p 2222 vagrant@localhost
+    # Using knife-solo: https://github.com/matschaffer/knife-solo 
+    $ knife prepare `SSH file_name`
+    knife prepare -p 2222 vagrant@localhost
 
 
 Implementation
