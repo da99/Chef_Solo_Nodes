@@ -22,11 +22,11 @@ describe "SSH" do
 
   it "adds -p argument if port is specified" do
     chdir {
-      `SSH "with_port"`.should == "-p 2222 ben_and_jerry"
+      `SSH "with_port"`.should == "-p 2222 BenNJer"
     }
   end
 
-  it "adds includes user if \"user\" is specified" do
+  it "adds user if \"user\" is specified" do
     chdir {
       `SSH "with_user"`.should == "RjD2@localhost"
     }

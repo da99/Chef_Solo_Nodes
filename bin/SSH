@@ -2,22 +2,24 @@
 
 require "Chef_Solo_Nodes"
 
-n = Chef_Solo_Nodes(Dir.glob("nodes/#{ARGV.first}.json")).first
+n = Chef_Solo_IPs(Dir.glob("nodes/#{ARGV.first}.json")).first
 
 unless n
   print "xx.xx.xx.xx"
   exit 1
 end
 
+uri = URI.parse("ssh://#{n}")
+
 str = ""
-if n['port']
-  str += "-p #{n['port']} "
+
+if uri.port
+  str << "-p #{uri.port} "
 end
 
-login = n['user'] || n['login']
-if login
-  str += "#{login}@"
+if uri.user
+  str << "#{uri.user}@"
 end
 
-str += "#{n['ipaddress']}"
+str << "#{uri.host}"
 print str

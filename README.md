@@ -26,7 +26,19 @@ Capistrano Usage
     role :app, *Chef_Solo_IPs('app')
     role :db, *Chef_Solo_IPs('db')
 
-Executable Usage: IP
+Usage: CAP\_IP
+--------------------
+
+    $ CAP_IP file_glob  
+    127.0.0.1
+
+    $ CAP_IP file_with_specified_port
+    127.0.0.1:2222
+
+    $ CAP_IP file_with_specified_user_and_port
+    vagrant@127.0.0.1:2222 
+
+Usage: IP
 --------------------
 
     $ IP file_glob  
@@ -36,9 +48,9 @@ Executable Usage: IP
     127.0.0.1:2222
 
     $ IP file_with_specified_user_and_port
-    127.0.0.1:2222 # user is not included
+    127.0.0.1:2222 # user is excluded
 
-Executable Usage: SSH
+Usage: SSH
 --------------------
 
     $ SSH file_glob  

@@ -1,4 +1,5 @@
 require 'Chef_Solo_Nodes/version'
+require "uri"
 require "json"
 
 # 
@@ -40,7 +41,13 @@ end
 #
 def Chef_Solo_IPs *args
   Chef_Solo_Nodes(*args).map { |h| 
-    [ h['ipaddress'] || h['hostname'], h['port'] ].compact.join(':')
+    u = h['user'] || h['login']
+    a = h['ipaddress'] || h['hostname'] 
+    p = h['port'] 
+
+    final = [u, a].compact.join('@')
+    final = [final, p].compact.join(':')
+    final
   }
 end
 

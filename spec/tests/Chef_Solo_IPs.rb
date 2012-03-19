@@ -21,6 +21,13 @@ describe "Chef_Solo_IPs()" do
       .should == [ "custom_port:1234"]
     }
   end
+
+  it "includes user in address: user@address" do
+    chdir {
+      Chef_Solo_IPs('login').
+      should == [ "log_RjD2@localhost"]
+    }
+  end
   
 end # === Chef_Solo_IPs
 
