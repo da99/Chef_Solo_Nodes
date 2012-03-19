@@ -1,6 +1,19 @@
 
 describe "SSH" do
   
+  it "prints xx.xx.xx.xx if file is not found" do
+    chdir {
+      `SSH not.found.json`.should == "xx.xx.xx.xx"
+    }
+  end
+
+  it "exists with 1 if not found" do
+    chdir {
+      `SSH not.found.json`
+      $?.exitstatus.should == 1
+    }
+  end
+
   it "returns one result" do
     chdir {
       `SSH "*"`.should == File.basename(Dir.glob("nodes/*.json").first).sub(".json", '')
