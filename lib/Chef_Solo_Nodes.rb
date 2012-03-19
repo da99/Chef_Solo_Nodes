@@ -1,22 +1,29 @@
 require 'Chef_Solo_Nodes/version'
 require "json"
 
-def Chef_Solo_Nodes raw_role = '*'
+# 
+#  Arguments:
+#
+#    role_or_paths = File paths Array OR Role name String.
+#
+#
+def Chef_Solo_Nodes role_or_paths = '*'
   
-  if raw_role.is_a?(Array)
+  if role_or_paths.is_a?(Array)
     role = '*'
-    targets = raw_role
+    files = role_or_paths
   else
-    role = raw_role.to_s
-    targets = Dir.glob("nodes/*.json")
+    role = role_or_paths.to_s
+    files = Dir.glob("nodes/*.json")
   end
   
-  targets.map { |str| 
+  files.map { |str| 
     h = JSON(File.read(str))
     next if role != '*' && !(h['roles'] || []).include?(role)
     h['ipaddress'] ||= File.basename(str).sub(".json", "")
     h
   }.compact
+  
 end
 
 def Chef_Solo_IPs *args
