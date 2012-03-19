@@ -54,7 +54,7 @@ Executable Usage: SSH
     ssh -p 2222 vagrant@127.0.0.1
 
     $ knife `SSH file_name`
-    knife vagrant@localhost:2222
+    knife -p 2222 vagrant@localhost
 
 
 Implementation
