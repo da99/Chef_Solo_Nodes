@@ -53,7 +53,7 @@ Usage: CAP\_IP
 
     $ CAP_IP file_name 
     127.0.0.1  
-    # Read from nodes/file_name.json
+    # Parses "nodes/file_name.json"
 
     $ CAP_IP file_with_port
     127.0.0.1:2222
@@ -68,7 +68,7 @@ The user is excluded in the final print out, unlike with CAP\_IP.
 
     $ IP file_with_user_and_port
     127.0.0.1:2222
-    # Read from nodes/file_with_user_and_port.json
+    # Parses "nodes/file_with_user_and_port.json" 
     
     $ IP file_with_no_port
     127.0.0.1
@@ -78,7 +78,7 @@ Usage: SSH
 
     $ SSH file_name
     127.0.0.1
-    # Read from nodes/file_name.json
+    # Parses "nodes/file_name.json"
 
     $ SSH file_with_specified_user_or_login
     vagrant@127.0.0.1
