@@ -24,7 +24,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'Bacon_Colored'
   s.add_development_dependency 'pry'
   
-  # s.rubyforge_project = "Chef_Solo_Nodes"
-  # specify any dependencies here; for example:
-  s.add_runtime_dependency "json"
+  s.add_runtime_dependency "trollop"
 end
