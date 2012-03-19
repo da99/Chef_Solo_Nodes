@@ -57,7 +57,6 @@ Executable Usage: SSH
     $ knife prepare `SSH file_name`
     knife prepare -p 2222 vagrant@localhost
 
-
 Implementation
 --------------
 
