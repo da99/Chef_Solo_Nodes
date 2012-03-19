@@ -50,11 +50,11 @@ Executable Usage: SSH
     $ SSH file_with_specified_port
     -p 2222 vagrant@127.0.0.1
 
-    $ ssh `SSH vagrant`
+    $ ssh $( SSH vagrant )
     ssh -p 2222 vagrant@127.0.0.1
 
     # Using knife-solo: https://github.com/matschaffer/knife-solo 
-    $ knife prepare `SSH file_name`
+    $ knife prepare $( SSH file_name )
     knife prepare -p 2222 vagrant@localhost
 
 Implementation
