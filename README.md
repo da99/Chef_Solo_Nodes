@@ -37,13 +37,16 @@ Usage: Capistrano
 
 Equivalent to:
 
-    role :app, "user@host:port", "xx.xx.xx.xx"
-    role :db, "xx.xx.xx.xx"
+    role :app, "user@host:port", "192.0.0.42"
+    role :db, "super.secret.base"
 
 Usage: Shell
 ------------
 
 Provides 3 executables: CAP\_IP, IP, SSH
+
+If no node is found, it will print "xx.xx.xx.xx" to
+standard output and exit status of 1.
 
 Usage: CAP\_IP
 --------------------
