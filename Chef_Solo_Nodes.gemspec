@@ -8,9 +8,11 @@ Gem::Specification.new do |s|
   s.version     = Chef_Solo_Nodes::VERSION
   s.authors     = ["da99"]
   s.email       = ["i-hate-spam-45671204@mailinator.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://www.github.com/da99/chef_solo_nodes"
+  s.summary     = %q{Grab node info from ./nodes/*.json}
+  s.description = %q{
+    Use with Chef-Solo.  Grabs node info as array of Hashes or String ips.
+  }
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -24,5 +26,5 @@ Gem::Specification.new do |s|
   
   # s.rubyforge_project = "Chef_Solo_Nodes"
   # specify any dependencies here; for example:
-  # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "json"
 end

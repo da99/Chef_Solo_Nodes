@@ -5,6 +5,11 @@ require 'Bacon_Colored'
 require 'pry'
 
 
+def chdir 
+  Dir.chdir("spec/data/") { yield }
+end
+
+
 # ======== Include the tests.
 if ARGV.size > 1 && ARGV[1, ARGV.size - 1].detect { |a| File.exists?(a) }
   # Do nothing. Bacon grabs the file.
