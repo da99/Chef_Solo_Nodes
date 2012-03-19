@@ -42,7 +42,7 @@ Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs().
 
     Chef_Solo_Nodes() # ===> [ Hash, Hash ]
     Chef_Solo_Nodes('role_name') # ===> [ Hash, Hash ]
-    Chef_Solo_IPs('db') # ===> [ String, String ]
+    Chef_Solo_IPs('db') # ===> [ "hostname", "user@hostname:port" ]
 
 Usage: Capistrano
 ----------------
@@ -64,30 +64,21 @@ Provides 3 executables: CAP\_IP, IP, SSH
 If no node is found, it will print "xx.xx.xx.xx" to
 standard output and exit status of 1.
 
-Usage: CAP\_IP
---------------------
-
-    $ CAP_IP file_name 
-    127.0.0.1  
-    # Parses "nodes/file_name.json"
-
-    $ CAP_IP file_with_port
-    127.0.0.1:2222
-
-    $ CAP_IP file_with_user_and_port
-    vagrant@127.0.0.1:2222 
-
 Usage: IP
 --------------------
 
-The user is excluded in the final print out, unlike with CAP\_IP.
+    $ IP file_name 
+    127.0.0.1  
+    # Parses "nodes/file_name.json"
+
+    $ IP file_with_port
+    127.0.0.1:2222
 
     $ IP file_with_user_and_port
-    127.0.0.1:2222
-    # Parses "nodes/file_with_user_and_port.json" 
-    
-    $ IP file_with_no_port
-    127.0.0.1
+    vagrant@127.0.0.1:2222 
+
+    $ IP --no-user file_with_user_and_port
+    127.0.0.1:2222 
 
 Usage: SSH
 --------------------

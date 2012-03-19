@@ -20,12 +20,29 @@ describe "IP" do
     }
   end
 
-  it "does not include user if specified" do
+  it "includes user if specified" do
     chdir {
-      `bundle exec IP "with_user"`.should == "localhost"
+      `bundle exec IP "with_user"`.should == "RjD2@localhost"
     }
   end
-  
+
+  it "includes login if specified" do
+    chdir {
+      `bundle exec IP "with_login"`.should == "log_RjD2@localhost"
+    }
+  end
+
+  it "excludes user if --no-user is specified" do
+    chdir {
+      `bundle exec IP --no-user "with_user"`.should == "localhost"
+    }
+  end
+
+  it "excludes login if --no-user is specified" do
+    chdir {
+      `bundle exec IP --no-user "with_login"`.should == "localhost"
+    }
+  end
   
 end # === IP
 

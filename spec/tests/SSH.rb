@@ -32,7 +32,7 @@ describe "SSH" do
     }
   end
 
-  it "adds user if \"user\" is specified" do
+  it "adds user if \"login\" is specified" do
     chdir {
       `SSH "with_login"`.should == "log_RjD2@localhost"
     }

@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-require "Chef_Solo_Nodes"
-
-n = Chef_Solo_IPs(Dir.glob("nodes/#{ARGV.first}.json")).first
-
-Chef_Solo_Node_Required n
-
-print n
