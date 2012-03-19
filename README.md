@@ -10,7 +10,7 @@ Installation
 
     gem install Chef_Solo_Nodes
 
-Ruby Usage
+Usage: Ruby
 ----------
 
     require "Chef_Solo_Nodes"
@@ -19,7 +19,7 @@ Ruby Usage
     Chef_Solo_Nodes('role_name') # ===> [ Hash, Hash ]
     Chef_Solo_IPs('db') # ===> [ String, String ]
 
-Capistrano Usage
+Usage: Capistrano
 ----------------
 
     require "Chef_Solo_Nodes"
@@ -29,32 +29,34 @@ Capistrano Usage
 Usage: CAP\_IP
 --------------------
 
-    $ CAP_IP file_glob  
-    127.0.0.1
+    $ CAP_IP file_name 
+    127.0.0.1  
+    # Read from nodes/file_name.json
 
-    $ CAP_IP file_with_specified_port
+    $ CAP_IP file_with_port
     127.0.0.1:2222
 
-    $ CAP_IP file_with_specified_user_and_port
+    $ CAP_IP file_with_user_and_port
     vagrant@127.0.0.1:2222 
 
 Usage: IP
 --------------------
 
-    $ IP file_glob  
-    127.0.0.1
+The user is excluded in the final print out, unlike with CAP\_IP.
 
-    $ IP file_with_specified_port
+    $ IP file_with_user_and_port
     127.0.0.1:2222
-
-    $ IP file_with_specified_user_and_port
-    127.0.0.1:2222 # user is excluded
+    # Read from nodes/file_with_user_and_port.json
+    
+    $ IP file_with_no_port
+    127.0.0.1
 
 Usage: SSH
 --------------------
 
-    $ SSH file_glob  
+    $ SSH file_name
     127.0.0.1
+    # Read from nodes/file_name.json
 
     $ SSH file_with_specified_user_or_login
     vagrant@127.0.0.1
@@ -72,12 +74,7 @@ Usage: SSH
 Implementation
 --------------
 
-It's easier to
-understand if you see the code. 
+It's easier to understand if you see the code. 
 [It's just one page long.](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
-
-[bin/SSH](https://github.com/da99/Chef_Solo_Nodes/blob/master/bin/SSH)
-
-[bin/IP](https://github.com/da99/Chef_Solo_Nodes/blob/master/bin/IP)
 
 
