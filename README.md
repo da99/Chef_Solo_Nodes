@@ -23,7 +23,7 @@ Implementation
 --------------
 
   It grabs all your files using Dir.glob("./nodes/\*.json").
-Chef\_Solo\_IPS() also does some magic. It's easier for you
-to see the code since it's all one page long:
-[code](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
+Chef\_Solo\_IPS() also does some magic. It's easier to
+understand if you see the code. 
+[It's just one page long.'](https://github.com/da99/Chef_Solo_Nodes/blob/master/lib/Chef_Solo_Nodes.rb)
 
