@@ -85,7 +85,7 @@ They are meant to generate arguments for other programs:
 [knife-solo](https://github.com/matschaffer/knife-solo).
 
 **Errors:** If the file is not found, they print **xx.xx.xx.xx** 
-to standard output and exit 1. Unknown errors (e.g. synatax/logic errors)
+to standard output and exit 1. Unexpected, unplanned errors 
 are printed to standard error.
 
 Usage: IP, IP --no-user
