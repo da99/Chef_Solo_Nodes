@@ -70,8 +70,7 @@ Usage: Shell
 
 Provides 2 executables: IP and SSH
 
-All they do is print out to standard output.  They are meant to
-generate arguments for other programs:
+They are meant to generate arguments for other programs:
 
     $ ping -c 3 $( IP --no-user file_name )
     ping -c 3 my.ip.address
@@ -85,20 +84,14 @@ generate arguments for other programs:
 **Tip:** the last example above uses
 [knife-solo](https://github.com/matschaffer/knife-solo).
 
-Usage: Errors for IP, SSH
--------------------------
-
-If the **.json** file is not found, the following is printed to standard output:
-
-    xx.xx.xx.xx 
-
-Exist status is set to 1.
+**Errors:** If the file is not found, they print **xx.xx.xx.xx** 
+to standard output and exit 1. Unknown errors (e.g. synatax/logic errors)
+are printed to standard error.
 
 Usage: IP, IP --no-user
 --------------------
 
-    $ IP file_name 
-    # Parses "nodes/file_name.json"
+    $ IP file_name     # parses node/file_name.json
     
 Depending on whether the attributes exist, the results could take
 any form of the following:
@@ -112,8 +105,7 @@ Remove **user@** with: **IP --no-user file_name**
 Usage: SSH, SSH --no-user
 --------------------
 
-    $ SSH file_name
-    # Parses "nodes/file_name.json"
+    $ SSH file_name    # parses node/file_name.json
 
 Depending on whether the attributes exist, the results could take
 any form of the following:
