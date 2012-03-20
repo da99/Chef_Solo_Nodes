@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
-
 require "Chef_Solo_Nodes"
+require "trollop"
+
+opts = Trollop::options do
+  opt :no_user, "Avoid printing any user/login value", :default=>false
+end
 
 n = Chef_Solo_IPs(Dir.glob("nodes/#{ARGV.first}.json")).first
 
@@ -17,7 +21,7 @@ if uri.port
   str << "-p #{uri.port} "
 end
 
-if uri.user
+if uri.user && !opts[:no_user]
   str << "#{uri.user}@"
 end
 

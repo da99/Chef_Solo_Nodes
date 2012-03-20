@@ -37,6 +37,12 @@ describe "SSH" do
       `SSH "with_login"`.should == "log_RjD2@localhost"
     }
   end
+
+  it "excludes login if --no-user is specified" do
+    chdir {
+      `bundle exec SSH --no-user "with_login"`.should == "localhost"
+    }
+  end
   
 end # === SSH
 

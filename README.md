@@ -95,7 +95,7 @@ If the file name does not exist:
     xx.xx.xx.xx
     # exit status = 1
 
-Usage: IP
+Usage: IP, IP --no-user
 --------------------
 
     $ IP file_name 
@@ -108,14 +108,12 @@ any form of the following:
     127.0.0.1:2222
     user@127.0.0.1:2222 
 
-Usage: IP --no-user
---------------------
-Removes the **user@** part of the address:
+With **--no-user**:
 
-    $ IP --no-user file_name
     127.0.0.1
+    127.0.0.1:2222
 
-Usage: SSH
+Usage: SSH, SSH --no-user
 --------------------
 
     $ SSH file_name
@@ -128,7 +126,10 @@ any form of the following:
     user@127.0.0.1
     -p 2222 user@127.0.0.1
 
-**Note:** SSH does not take any other options/arguments except for the file name.
+With **--no-user**:
+    
+    127.0.0.1
+    -p 2222 127.0.0.1 
 
 Run Tests
 ---------
