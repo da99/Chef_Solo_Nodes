@@ -49,7 +49,7 @@ Usage: Capistrano
 
     require "Chef_Solo_Nodes"
     role :app, *Chef_Solo_IPs('app')
-    role :db, *Chef_Solo_IPs('db')
+    role :db,  *Chef_Solo_IPs('db')
 
 Equivalent to:
 
@@ -100,4 +100,11 @@ Usage: SSH
     $ knife prepare $( SSH file_name )
     knife prepare -p 2222 vagrant@localhost
 
+Run Tests
+---------
+
+    git clone git@github.com:da99/Chef_Solo_Nodes.git
+    cd Chef_Solo_Nodes
+    bundle update
+    bundle exec bacon spec/main.rb
 
