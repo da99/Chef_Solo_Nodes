@@ -88,12 +88,11 @@ generate arguments for other programs:
 Usage: Errors for IP, SSH
 -------------------------
 
-If the file name does not exist:
+If the **.json** file is not found, the following is printed to standard output:
 
-    $ IP  missing_file
-    $ SSH missing_file
-    xx.xx.xx.xx
-    # exit status = 1
+    xx.xx.xx.xx 
+
+Exist status is set to 1.
 
 Usage: IP, IP --no-user
 --------------------
@@ -108,10 +107,7 @@ any form of the following:
     127.0.0.1:2222
     user@127.0.0.1:2222 
 
-With **--no-user**:
-
-    127.0.0.1
-    127.0.0.1:2222
+Remove **user@** with: **IP --no-user file_name**
 
 Usage: SSH, SSH --no-user
 --------------------
@@ -126,10 +122,7 @@ any form of the following:
     user@127.0.0.1
     -p 2222 user@127.0.0.1
 
-With **--no-user**:
-    
-    127.0.0.1
-    -p 2222 127.0.0.1 
+Remove **user@** with: **SSH --no-user file_name**
 
 Run Tests
 ---------
