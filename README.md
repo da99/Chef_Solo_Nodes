@@ -36,14 +36,22 @@ Installation
 Usage: Ruby
 ----------
 
-Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs(). In Ruby,
-you would pass them an optional role name to filter the nodes.
+Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs(). 
+You can pass them an optional role name to filter the nodes.
 
     require "Chef_Solo_Nodes"
 
     Chef_Solo_Nodes()            # ===> [ Hash, Hash ]
     Chef_Solo_Nodes('role_name') # ===> [ Hash, Hash ]
     Chef_Solo_IPs('db')          # ===> [ "hostname", "user@hostname:port" ]
+
+If the argument is an Array, it will treat each element as a 
+file path to a JSON file:
+
+    paths  = [ "node/FILE_1.json", "node/FILE_2.json" ]
+    Chef_Solo_Nodes paths
+    Chef_Solo_IPs   paths
+
 
 Usage: Capistrano
 ----------------

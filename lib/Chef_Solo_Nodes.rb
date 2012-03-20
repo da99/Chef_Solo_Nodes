@@ -15,7 +15,7 @@ def Chef_Solo_Nodes role_or_paths = '*'
   
   if role_or_paths.is_a?(Array)
     role = '*'
-    files = role_or_paths
+    files = role_or_paths.map { |path| File.expand_path(path) }
   else
     role = role_or_paths.to_s
     files = Dir.glob("nodes/*.json")
