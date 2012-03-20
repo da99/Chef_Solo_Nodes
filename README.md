@@ -36,13 +36,14 @@ Installation
 Usage: Ruby
 ----------
 
-Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs(). 
+Provides two functions: Chef\_Solo\_Nodes(), Chef\_Solo\_IPs(). In Ruby,
+you would pass them an optional role name to filter the nodes.
 
     require "Chef_Solo_Nodes"
 
-    Chef_Solo_Nodes() # ===> [ Hash, Hash ]
+    Chef_Solo_Nodes()            # ===> [ Hash, Hash ]
     Chef_Solo_Nodes('role_name') # ===> [ Hash, Hash ]
-    Chef_Solo_IPs('db') # ===> [ "hostname", "user@hostname:port" ]
+    Chef_Solo_IPs('db')          # ===> [ "hostname", "user@hostname:port" ]
 
 Usage: Capistrano
 ----------------
@@ -54,51 +55,72 @@ Usage: Capistrano
 Equivalent to:
 
     role :app, "user@host:port", "192.0.0.42"
-    role :db, "super.secret.base"
+    role :db,  "super.secret.base"
 
 Usage: Shell
 ------------
 
-Provides 3 executables: CAP\_IP, IP, SSH
+Provides 2 executables: IP and SSH
 
-If no node is found, it will print "xx.xx.xx.xx" to
-standard output and exit status of 1.
+All they do is print out to standard output.  They are meant to
+generate arguments for other programs:
+
+    $ ping -c 3 $( IP --no-user file_name )
+    ping -c 3 my.ip.address
+
+    $ ssh $( SSH file_name )
+    ssh -p 2222 user@ip.address
+
+    $ knife prepare $( SSH file_name )
+    knife prepare -p 4567 user@ip.address
+
+**Tip:** the last example above uses
+[knife-solo](https://github.com/matschaffer/knife-solo).
+
+Usage: Errors for IP, SSH
+-------------------------
+
+If the file name does not exist:
+
+    $ IP  missing_file
+    $ SSH missing_file
+    xx.xx.xx.xx
+    # exit status = 1
 
 Usage: IP
 --------------------
 
     $ IP file_name 
-    127.0.0.1  
     # Parses "nodes/file_name.json"
+    
+Depending on whether the attributes exist, the results could take
+any form of the following:
 
-    $ IP file_with_port
+    127.0.0.1  
     127.0.0.1:2222
+    user@127.0.0.1:2222 
 
-    $ IP file_with_user_and_port
-    vagrant@127.0.0.1:2222 
+Usage: IP --no-user
+--------------------
+Removes the **user@** part of the address:
 
-    $ IP --no-user file_with_user_and_port
-    127.0.0.1:2222 
+    $ IP --no-user file_name
+    127.0.0.1
 
 Usage: SSH
 --------------------
 
     $ SSH file_name
-    127.0.0.1
     # Parses "nodes/file_name.json"
 
-    $ SSH file_with_specified_user_or_login
-    vagrant@127.0.0.1
+Depending on whether the attributes exist, the results could take
+any form of the following:
 
-    $ SSH file_with_specified_port
-    -p 2222 vagrant@127.0.0.1
+    127.0.0.1
+    user@127.0.0.1
+    -p 2222 user@127.0.0.1
 
-    $ ssh $( SSH vagrant )
-    ssh -p 2222 vagrant@127.0.0.1
-
-    # Using knife-solo: https://github.com/matschaffer/knife-solo 
-    $ knife prepare $( SSH file_name )
-    knife prepare -p 2222 vagrant@localhost
+**Note:** SSH does not take any other options/arguments except for the file name.
 
 Run Tests
 ---------
