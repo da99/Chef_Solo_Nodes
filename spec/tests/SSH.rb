@@ -3,13 +3,13 @@ describe "SSH" do
   
   it "prints xx.xx.xx.xx if file is not found" do
     chdir {
-      `SSH not.found.json`.should == "xx.xx.xx.xx"
+      `SSH mr.x.is.homer 2>/dev/null`.should == "xx.xx.xx.xx"
     }
   end
 
   it "exists with 1 if not found" do
     chdir {
-      `SSH not.found.json`
+      `SSH murray.rothbards.diet.plans 2>/dev/null`
       $?.exitstatus.should == 1
     }
   end
