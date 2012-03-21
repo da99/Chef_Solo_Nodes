@@ -16,13 +16,13 @@ Example: node/Machine\_Name.json
     
     { 
        "ipaddress": "localhost", 
-       "port": 2222, 
-       "user": "vagrant",
+       "port":      2222, 
+       "user":      "vagrant",
 
        /* Your other Chef-related attributes. */
        /* Ignored by Chef_Solo_Nodes.         */
-       "roles": ["dev"],
-       "run_list": [ "recipe[...]", "recipe[....]"]
+       "roles":     ["dev"],
+       "run_list":  [ "recipe[...]", "recipe[....]"]
     }
 
 Implementation
