@@ -124,8 +124,9 @@ Run Tests
     bundle update
     bundle exec bacon spec/main.rb
 
-Alan Kay Model of Development
+"I hate writing."
 -----------------------------
 
 If you know of existing software that makes the above redundant,
 please tell me. The last thing I want to do is maintain code.
+
