@@ -124,3 +124,10 @@ Run Tests
     bundle update
     bundle exec bacon spec/main.rb
 
+Alan Kay Model of Development
+-----------------------------
+
+If you know of a better way of accomplishing the above functionality,
+please tell me.  I want to do everything possible to make everything I write
+obsolete.
+
