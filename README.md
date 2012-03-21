@@ -127,7 +127,5 @@ Run Tests
 Alan Kay Model of Development
 -----------------------------
 
-If you know of a better way of accomplishing the above functionality,
-please tell me.  I want to do everything possible to make everything I write
-obsolete.
-
+If you know of existing software that makes the above redundant,
+please tell me. The last thing I want to do is maintain code.
